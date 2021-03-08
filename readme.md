@@ -111,8 +111,8 @@ The MIT License (MIT). Please see the [license file](license.md) for more inform
 [ico-travis]: https://img.shields.io/travis/avexsoft/sidepress/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
-[link-packagist]: https://packagist.org/packages/avexsoft/lararvel-sidepress
-[link-downloads]: https://packagist.org/packages/avexsoft/lararvel-sidepress
+[link-packagist]: https://packagist.org/packages/avexsoft/laravel-sidepress
+[link-downloads]: https://packagist.org/packages/avexsoft/laravel-sidepress
 [link-travis]: https://travis-ci.org/avexsoft/sidepress
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/avexsoft
