@@ -1,16 +1,19 @@
 {
-    "name": "avexsoft/sidepress",
-    "description": ":package_description",
-    "license": "license",
+    "name": "avexsoft/laravel-sidepress",
+    "description": "Let Wordpress share the same domain root, side-by-side, with Laravel",
+    "keywords": [
+        "Laravel",
+        "Wordpress",
+        "Sidepress"
+    ],
+    "homepage": "https://github.com/avexsoft/laravel-sidepress",
+    "license": "MIT",
     "authors": [
         {
-            "name": "author name",
-            "email": "author email",
-            "homepage": "author homepage"
+            "name": "Avexsoft",
+            "homepage": "https://github.com/avexsoft"
         }
     ],
-    "homepage": "https://github.com/avexsoft/sidepress",
-    "keywords": ["Laravel", "Sidepress"],
     "require": {
         "illuminate/support": "~7|~8"
     },

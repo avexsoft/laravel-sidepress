@@ -3,6 +3,7 @@
 namespace Avexsoft\Sidepress;
 
 use Illuminate\Support\ServiceProvider;
+use Route;
 
 class SidepressServiceProvider extends ServiceProvider
 {
@@ -17,10 +18,16 @@ class SidepressServiceProvider extends ServiceProvider
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'avexsoft');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->app->booted(function () {
+            Route::middleware('web')
+                ->namespace('Avexsoft\Sidepress')
+                ->group(__DIR__ . '/../routes/web2.php');
+        });
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
+            require_once __DIR__ . '/../routes/console.php';
         }
     }
 
@@ -31,7 +38,7 @@ class SidepressServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/sidepress.php', 'sidepress');
+        $this->mergeConfigFrom(__DIR__ . '/../config/sidepress.php', 'sidepress');
 
         // Register the service the package provides.
         $this->app->singleton('sidepress', function ($app) {
@@ -58,22 +65,22 @@ class SidepressServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/sidepress.php' => config_path('sidepress.php'),
+            __DIR__ . '/../config/sidepress.php' => config_path('sidepress.php'),
         ], 'sidepress.config');
 
         // Publishing the views.
         /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/avexsoft'),
+        __DIR__.'/../resources/views' => base_path('resources/views/vendor/avexsoft'),
         ], 'sidepress.views');*/
 
         // Publishing assets.
         /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/avexsoft'),
+        __DIR__.'/../resources/assets' => public_path('vendor/avexsoft'),
         ], 'sidepress.views');*/
 
         // Publishing the translation files.
         /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/avexsoft'),
+        __DIR__.'/../resources/lang' => resource_path('lang/vendor/avexsoft'),
         ], 'sidepress.views');*/
 
         // Registering package commands.
